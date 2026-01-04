@@ -61,6 +61,7 @@
         .btn-draft { background-color: #5d4037; }
         .btn-save { background-color: #5cb85c; }
 
+        /* Modified Strip for Procedure Info */
         .info-strip {
             background-color: var(--primary-teal);
             color: #000;
@@ -120,8 +121,15 @@
             transition: background-color 0.2s;
         }
 
+        /* Procedure Header special style (Teal but clickable) */
+        .procedure-header {
+            background-color: var(--primary-teal) !important;
+            color: #000;
+            border: none;
+        }
+
         .vital-header:hover {
-            background-color: #f1f100;
+            opacity: 0.9;
         }
 
         .vital-header span.arrow {
@@ -200,24 +208,30 @@
         </div>
     </div>
 
-    <!-- شريط معلومات الإجراء -->
-    <div class="info-strip">Procedure Information</div>
+    <!-- NEW: Collapsible Procedure Information (Teal Bar) -->
+    <div class="vital-header procedure-header">
+        <span>Procedure Information</span> 
+        <span class="arrow">▼</span>
+    </div>
+    <div class="collapsible-content">
+        <div class="form-section">
+            <!-- تفاصيل العملية -->
+            <table>
+                <tr><td class="label-cell">Proposed Operation</td><td><input type="text"></td></tr>
+                <tr><td class="label-cell">Operation Performed</td><td><input type="text"></td></tr>
+                <tr><td class="label-cell">Anesthetist</td><td><input type="text"></td></tr>
+                <tr><td class="label-cell">Technician</td><td><input type="text"></td></tr>
+                <tr><td class="label-cell">Surgeon</td><td><input type="text"></td></tr>
+                <tr><td class="label-cell">Assistant</td><td><input type="text"></td></tr>
+                <tr><td class="label-cell">Anesthesia start</td><td><input type="text" placeholder="HH:mm"></td></tr>
+                <tr><td class="label-cell">Anesthesia finish</td><td><input type="text" placeholder="📅 HH:mm"></td></tr>
+                <tr><td class="label-cell">Surgery start</td><td><input type="text" placeholder="HH:mm"></td></tr>
+                <tr><td class="label-cell">Surgery finish</td><td><input type="text" placeholder="HH:mm"></td></tr>
+            </table>
+        </div>
+    </div>
 
     <div class="form-section">
-        <!-- تفاصيل العملية -->
-        <table>
-            <tr><td class="label-cell">Proposed Operation</td><td><input type="text"></td></tr>
-            <tr><td class="label-cell">Operation Performed</td><td><input type="text"></td></tr>
-            <tr><td class="label-cell">Anesthetist</td><td><input type="text"></td></tr>
-            <tr><td class="label-cell">Technician</td><td><input type="text"></td></tr>
-            <tr><td class="label-cell">Surgeon</td><td><input type="text"></td></tr>
-            <tr><td class="label-cell">Assistant</td><td><input type="text"></td></tr>
-            <tr><td class="label-cell">Anesthesia start</td><td><input type="text" placeholder="HH:mm"></td></tr>
-            <tr><td class="label-cell">Anesthesia finish</td><td><input type="text" placeholder="📅 HH:mm"></td></tr>
-            <tr><td class="label-cell">Surgery start</td><td><input type="text" placeholder="HH:mm"></td></tr>
-            <tr><td class="label-cell">Surgery finish</td><td><input type="text" placeholder="HH:mm"></td></tr>
-        </table>
-
         <!-- حالة المريض -->
         <div class="vital-header"><span>Patient Status</span> <span class="arrow">▼</span></div>
         <div class="collapsible-content">
@@ -327,8 +341,7 @@
                     </td>
                 </tr>
                 <tr><td class="label-cell">Patient position</td><td><input type="text"></td></tr>
-                <!-- Updated Default Induction Drugs -->
-                <tr><td class="label-cell">Induction Drugs</td><td><textarea rows="4">1. Fentanyl&#10;2. Propofol&#10;3. Rocuronium</textarea></td></tr>
+                <tr><td class="label-cell">Indication Drugs</td><td><textarea rows="4">1. Fentanyl&#10;2. Propofol&#10;3. Rocuronium</textarea></td></tr>
                 <tr>
                     <td class="label-cell">Maintenance</td>
                     <td>
@@ -396,7 +409,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Updated Default Medications Table -->
                     <tr><td>1</td><td><input type="text"></td><td><input type="text" value="Fentanyl"></td><td><input type="text"></td></tr>
                     <tr><td>2</td><td><input type="text"></td><td><input type="text" value="Propofol"></td><td><input type="text"></td></tr>
                     <tr><td>3</td><td><input type="text"></td><td><input type="text" value="Rocuronium"></td><td><input type="text"></td></tr>
